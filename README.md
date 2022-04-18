@@ -1,30 +1,39 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+2022.04.18 nestjs 로 다시 시작해보기!
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+개요 //
++@ docker 사용해서 mysql 연결
+docker container 구성
+개발 환경 구분 / prod//dev
+환경변수 nest 번들 config 사용 // dotenv 기능 탑재
+jwtToken => passport 인증 + bcrypt 해시
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+user
+oauth
 
-## Description
+cookie?? // 사용허실? // 사용하지 뭐~
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+validation 조금 더 세분화해서 나누기
+id password jwtToken accessToken
+
+promise 
+entity
+class constructor method super extends 
+
+문제 //
+2022.04.18 => docker 를 사용하자!
+mysql docker 설치 완료
+docker 로 prod/dev 환경 별 세팅도 하고 싶음 ==> 안됨
+총 3개의 이미지를 구워서 3개를 컨테이너화 시켜서 쓰고 싶은디
+3개는 안구워짐 => 그래서 2개를 했더니 조금 더 빌드는 성공하지만 5단계에서 안구워짐 왜??
+
++??? 경로 설정 문제로 안되던 nest 명령어가 먹힘 읭???? 설마 source 로 적용 안시켰었나..
+암튼 됨...ㅠㅠ
+
+도커는 안됨... 낼 다시 이미지 3개 구울 수 있도록 해봐야곘음
+안 될 이유가 하나도 없음 10개도 되야하는데
+Dockerfile 이나 docker-compose.yml 다시 건드려봅시다
+
+
 
 ## Installation
 
