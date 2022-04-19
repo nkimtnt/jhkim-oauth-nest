@@ -1,24 +1,32 @@
-version: '3'
+version: '3.8'
 services:
-  api:
+  app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./Dockerfile
+    environment:
+      - DB_HOST=localhost
+      - DB_PORT=3306
+      - DB_NAME=process.env.MYSQL_DATABASE
+      - DB_USERNAME=process.env.MYSQL_USER
+      - DB_PASSWORD=process.env.MYSQL_PASSWORD
+    depends_on:
+      - mysql
     ports:
       - "3000:3000"
-    depends_on:
-      - local-db
+    command:
+      - npm run local
+    volumes:
+      - ./:/app/
 
-  local-db:
-    image: library/mysql:5.7
+  mysql:
+    image: amd64/mysql
     container_name: jhkim-oauth-nest
     restart: always
     ports:
-      - 13306:3306
+      - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      TZ: Asia/Seoul
-    volumes:
-      - ./db/mysql/data:/var/lib/mysql
-      - ./db/mysql/init:/docker-entrypoint-initdb.d
-    platform: linux/x86_64
+      MYSQL_ROOT_PASSWORD: process.env.MYSQL_ROOT_PASSWORD # root 계정 비밀번호
+      MYSQL_DATABASE: process.env.MYSQL_DATABASE # 초기 생성 데이터베이스
+      MYSQL_USER: process.env.MYSQL_USER # 생성할 사용자 이름
+      MYSQL_PASSWORD: process.env.MYSQL_PASSWORD # 생성할 사용자 비밀번호
