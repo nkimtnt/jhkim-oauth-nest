@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  mysql:
+    image: amd64/mysql
+    restart: 'always'
+    container_name: jhkim-oauth-nest
+    environment:
+      MYSQL_ROOT_PASSWORD: process.env.MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: process.env.MYSQL_DATABASE
+      MYSQL_USER: process.env.MYSQL_USER
+      MYSQL_PASSWORD: process.env.MYSQL_PASSWORD
