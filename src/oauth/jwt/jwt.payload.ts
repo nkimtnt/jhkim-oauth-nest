@@ -1,4 +1,4 @@
-export class UserDto {
+export type Payload = {
   userId: string;
   userPassword: string;
-}
+};

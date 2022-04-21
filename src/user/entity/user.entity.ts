@@ -8,4 +8,6 @@ export class User {
   userId: string;
   @Column()
   userPassword: string;
+  @Column()
+  jwtToken: string;
 }
